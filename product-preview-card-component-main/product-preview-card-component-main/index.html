@@ -1,36 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Product preview card component</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
+    <title>Frontend Mentor | Product preview card component</title>
 
-  Perfume
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="img-part">
+        <!-- Use the <picture> element to change the image according to screen size -->
+        <picture>
+          <source
+            srcset="./images/image-product-desktop.jpg"
+            media="(min-width: 768px)"
+          />
+          <img src="./images/image-product-mobile.jpg" alt="Product Image" />
+        </picture>
+      </div>
+      <div class="text-part">
+        <p>Perfume</p>
+        <h1>Gabrielle Essence Eau De Parfum</h1>
+        <p>
+          A floral, solar and voluptuous interpretation composed by Olivier
+          Polge, Perfumer-Creator for the House of CHANEL.
+        </p>
+        <div class="price">
+          <p>$149.99</p>
+          <span>$169.99</span>
+        </div>
+        <button>Add to Cart</button>
+      </div>
+    </div>
 
-  Gabrielle Essence Eau De Parfum
-
-  A floral, solar and voluptuous interpretation composed by Olivier Polge, 
-  Perfumer-Creator for the House of CHANEL.
-
-  $149.99
-  $169.99
-
-  Add to Cart
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
-</body>
+    <div class="attribution">
+      Challenge by
+      <a
+        href="https://www.frontendmentor.io?ref=challenge"
+        target="_blank"
+        rel="noopener"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Your Name Here</a>.
+    </div>
+  </body>
 </html>
+
+<!-- 
+To use different images for mobile and desktop views, you can use the <picture> element along with the <source> element. This allows you to specify different images for different screen sizes using media queries.
+-->
+
+<!-- 
+Explanation
+<picture>: The <picture> element contains one or more <source> elements and one <img> element. The browser will choose the first <source> element that matches the current viewport size.
+<source>: The <source> element specifies different images for different screen sizes using the srcset attribute and the media attribute.
+srcset="./images/image-product-desktop.jpg": Specifies the image to use for desktop view.
+media="(min-width: 768px)": Specifies that the desktop image should be used when the viewport width is 768 pixels or wider.
+
+<img>: The <img> element provides the default image to use when none of the <source> elements match. In this case, it provides the mobile image.
+With this setup, the browser will automatically switch between the mobile and desktop images based on the screen size.
+-->

@@ -1,0 +1,118 @@
+/* reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* import fonts */
+/* 
+- Family: [Figtree](https://fonts.google.com/specimen/Figtree)
+- Weights: 500, 800
+*/
+@font-face {
+    font-family: figtree;
+    /* italic */
+    /* src: url(./assets/fonts/Figtree-Italic-VariableFont_wght.ttf); */
+    /* VariableFont_wght*/
+    src: url(./assets/fonts/Figtree-VariableFont_wght.ttf);
+}
+/* use variables */
+:root {
+  /* colors */
+  --yellow: hsl(47, 88%, 63%);
+  --white: hsl(0, 0%, 100%);
+  --gray-500: hsl(0, 0%, 42%);
+  --gray-950: hsl(0, 0%, 7%);
+  /* Typography */
+  --paragraph-font-size: 16px;
+  font-family: figtree;
+  /* sizes */
+  --padding-container: 20px;
+  --br-container: 15px;
+  --br-img: 15px;
+}
+
+body {
+  background-color: var(--yellow);
+}
+
+
+/* deal with our container */
+/*  f-c, hv, br, w => to center */
+/* our design must work from screen 320 to upper */
+.container{
+    background-color: var(--white);
+    margin: 25% auto 0;
+    width: 300px;
+    height: 90hv;
+    border-radius: var(--br-container);
+    padding: var(--padding-container);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: start;
+    /* shadow */
+    box-shadow: 5px 5px 0 black;
+    margin-bottom: 5px;
+
+}
+
+.container img{
+    width: 100%;
+    border-radius: var(--br-img);
+    margin-bottom: 10px;
+}
+
+button{
+  display: inline-block;
+  background-color: var(--yellow);
+  width: 30%;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  font-weight: 800;
+}
+
+h1 {
+  color: var(--gray-950);
+  font-weight: 800;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+p {
+  font-size: var(--paragraph-font-size);
+  color: var(--gray-500);
+  font-weight: 500;
+}
+
+
+.footer-container{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+
+
+.footer-container img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.footer-container > p {
+  font-weight: 800;
+  color: var(--gray-950);
+}
+
+
+
+@media screen and (min-width:421px) {
+  .container{
+    width: 420px;
+  }
+}

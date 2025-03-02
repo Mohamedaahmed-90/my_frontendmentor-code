@@ -1,0 +1,72 @@
+/* reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* import fonts */
+/* 
+- Family: [Outfit](https://fonts.google.com/specimen/Outfit)
+- Weights: 400, 700
+*/
+/* use variables */
+:root {
+  /* colors */
+  --white: hsl(0, 0%, 100%);
+  --slate-300: hsl(212, 45%, 89%);
+  --slate-500: hsl(216, 15%, 48%);
+  --slate-900: hsl(218, 44%, 22%);
+  /* Typography */
+  --paragraph-font-size: 15px;
+  /* sizes */
+  --padding-container: 20px;
+  --br-container:15px;
+  --br-img:15px;
+}
+
+body {
+  background-color: var(--slate-300);
+}
+
+h1 {
+  color: var(--slate-900);
+}
+
+p {
+  font-size: var(--paragraph-font-size);
+  color: var(--slate-500);
+}
+
+/* deal with our container */
+/*  f-c, hv, br, w => to center */
+/* our design must work from screen 320 to upper */
+.container {
+  background-color: var(--white);
+  height: 90hv;
+  width: 300px;
+  margin: 25% auto 0;
+  display: flex;
+  flex-direction: column;
+  padding: var(--padding-container);
+  border-radius: var(--br-container);
+  text-align: center;
+}
+
+img {
+  width: 100%;
+  border-radius: var(--br-img);
+}
+
+/* screen*/
+@media screen and (min-width: 320px) {
+    .container{
+        width: 95%;
+    }
+}
+
+@media screen and (min-width: 421px) {
+    .container{
+        width: 400px;
+    }
+}
