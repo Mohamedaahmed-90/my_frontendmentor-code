@@ -1,0 +1,137 @@
+  /* Base styles */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #fafafa;
+    padding: 4rem 2rem;
+    min-height: 100vh;
+}
+
+/* Header section - Flexbox */
+.header {
+    text-align: center;
+    max-width: 500px;
+    margin: 0 auto 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.title {
+    font-size: 1.5rem;
+    color: #4c4e61;
+}
+
+.title span {
+    display: block;
+    font-weight: 200;
+}
+
+.subtitle {
+    color: #a3a5ae;
+    line-height: 1.6;
+}
+
+/* Main grid container */
+.cards-container {
+    display: grid;
+    gap: 1.5rem;
+    max-width: 1200px;
+    /* [ ] move to center around space created due to body >> padding */
+    margin: 0 auto;
+}
+
+/* Cards - Flexbox for content */
+.card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 5px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 200px;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+}
+
+.supervisor::before { background: #45d3d3; }
+.team-builder::before { background: #ea5353; }
+.karma::before { background: #fcaf4a; }
+.calculator::before { background: #549ef2; }
+
+.card h2 {
+    color: #4c4e61;
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+}
+
+.card p {
+    color: #a3a5ae;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    /* margin-top: auto; */
+}
+
+.card img{
+    width: 50px;
+    margin-top: auto;
+    align-self: flex-end;
+
+}
+/* Desktop layout - Grid */
+@media (min-width: 768px) {
+    .title {
+        font-size: 2rem;
+    }
+
+    .cards-container {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        /* TODO: how it work*/
+        align-items: center;
+        /* COMMENT: it deal with y axis */
+    }
+    
+    .supervisor {
+    /* NOTE your positon in column 1 => 1/2 */
+        grid-column: 1;
+        grid-row: 1 / 3;
+    }
+    /* [ ] order on both >> column & row */
+    .team-builder {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    /* [ ] order on both >> column & row */
+    .karma {
+        grid-column: 2;
+        grid-row: 2;
+    }
+
+    .calculator {
+        grid-column: 3;
+        grid-row: 1 / 3;
+    }
+}
+
+/* Mobile layout - Grid */
+@media (max-width: 767px) {
+    .cards-container {
+        grid-template-columns: 1fr;
+    }
+}

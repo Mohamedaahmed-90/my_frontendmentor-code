@@ -1,118 +1,151 @@
-/* reset */
-*,
-*::before,
-*::after {
+/* Reset وتنسيقات أساسية */
+* {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
+  font-family: "Figtree", sans-serif;
 }
 
-/* import fonts */
-/* 
-- Family: [Figtree](https://fonts.google.com/specimen/Figtree)
-- Weights: 500, 800
-*/
 @font-face {
-    font-family: figtree;
-    /* italic */
-    /* src: url(./assets/fonts/Figtree-Italic-VariableFont_wght.ttf); */
-    /* VariableFont_wght*/
-    src: url(./assets/fonts/Figtree-VariableFont_wght.ttf);
+  font-family: Figtree;
+  src: url(./assets/fonts/Figtree-VariableFont_wght.ttf);
 }
 /* use variables */
 :root {
-  /* colors */
+  /*========== Colors ==========*/
   --yellow: hsl(47, 88%, 63%);
   --white: hsl(0, 0%, 100%);
   --gray-500: hsl(0, 0%, 42%);
   --gray-950: hsl(0, 0%, 7%);
-  /* Typography */
-  --paragraph-font-size: 16px;
-  font-family: figtree;
-  /* sizes */
-  --padding-container: 20px;
-  --br-container: 15px;
+  /*========== border-radius ==========*/
+  --br-card: 20px;
   --br-img: 15px;
+
+  /*========== Font and typography ==========*/
+  --h1-font-size: 1.5rem;
+  --normal-font-size: 0.938rem;
+
+  /*========== Font weight ==========*/
+  --font-medium: 500;
+  --font-bold: 800;
+
+  /*========== Paddings Bottom ==========*/
+  --pb-0-25: 0.25rem;
+  --pb-0-5: 0.5rem;
+  --pb-0-75: 0.75rem;
+  --pb-0-9375: 0.9375rem;
+  --pb-1: 1rem;
+  --pb-1-2: 1.2rem;
+  --pb-1-25: 1.25rem;
+  --pb-1-4: 1.4rem;
+  --pb-1-5: 1.5rem;
+  --pb-1-6: 1.6rem;
+  --pb-2: 2rem;
+  --pb-2-5: 2.5rem;
 }
 
 body {
-  background-color: var(--yellow);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--yellow);
+  /* COMMENT: we can use padding to add space around learning-card if we want that */
+  /* [ ] we here move card inro center by flex which make space around card */
 }
 
-
-/* deal with our container */
-/*  f-c, hv, br, w => to center */
-/* our design must work from screen 320 to upper */
-.container{
-    background-color: var(--white);
-    margin: 25% auto 0;
-    width: 300px;
-    height: 90hv;
-    border-radius: var(--br-container);
-    padding: var(--padding-container);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    text-align: start;
-    /* shadow */
-    box-shadow: 5px 5px 0 black;
-    margin-bottom: 5px;
-
+.learning-card {
+  background: var(--white);
+  width: 384px;
+  padding: var(--pb-1-5);
+  border-radius: 20px;
+  border: 1px solid black;
+  box-shadow: 8px 8px 0 black;
+  transition: transform 0.3s ease;
 }
 
-.container img{
-    width: 100%;
-    border-radius: var(--br-img);
-    margin-bottom: 10px;
+/* تأثير الرفع عند التمرير */
+.learning-card:hover {
+  transform: translateY(-5px);
 }
 
-button{
-  display: inline-block;
-  background-color: var(--yellow);
-  width: 30%;
-  border: none;
-  border-radius: 5px;
-  padding: 10px;
-  font-weight: 800;
+.card-image {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: var(--pb-1-5);
 }
 
-h1 {
+.card-content {
+  display: flex;
+  flex-direction: column;
+  /* COMMENT: use gap instead of margin-bottom */
+  gap: 12px;
+}
+
+/* التصنيف والتاريخ */
+.category-date {
+  display: flex;
+  flex-direction: column;
+  /* use gap instead of mb */
+  gap: 12px;
+}
+
+.category {
+  /* NOTE: use span to create btn, and use fit-content as width value */
+  background: var(--yellow);
+  /* padding: 4px 12px; */
+  padding: var(--pb-0-25) var(--pb-0-75);
+  border-radius: 4px;
+  width: fit-content;
+  font-weight: var(--font-bold);
+}
+
+.publish-date {
+  font-weight: var(--font-medium);
   color: var(--gray-950);
-  font-weight: 800;
-  margin-top: 5px;
-  margin-bottom: 5px;
 }
 
-p {
-  font-size: var(--paragraph-font-size);
+.card-title {
+  font-size: var(--h1-font-size);
+  font-weight: var(--font-bold);
+  cursor: pointer;
+}
+
+.card-title:hover {
+  color: var(--yellow);
+}
+
+.card-description {
   color: var(--gray-500);
-  font-weight: 500;
+  line-height: 1.5;
 }
 
-
-.footer-container{
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
+.author-section {
+  display: flex;
+  /* we use only what we need to get right distripution */
+  align-items: center;
+  /* we use gap instead of margin-right */
+  gap: 12px;
+  margin-top: var(--pb-1-5);
 }
 
-
-
-.footer-container img{
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-right: 10px;
+.author-avatar {
+  width: 32px;
+  height: 32px;
 }
 
-.footer-container > p {
-  font-weight: 800;
-  color: var(--gray-950);
+.author-name {
+  font-weight: var(--font-bold);
 }
 
+@media (max-width: 425px) {
+  .learning-card {
+    width: 327px;
+    margin: 0 var(--pb-1);
+    box-shadow: 6px 6px 0 black;
+  }
 
-
-@media screen and (min-width:421px) {
-  .container{
-    width: 420px;
+  .card-title {
+    font-size: var(--pb-1-25);
   }
 }

@@ -1,0 +1,118 @@
+/*   
+  - Family: [Lexend Deca](https://fonts.google.com/specimen/Lexend+Deca)
+- Weights: 400
+
+- Family: [Big Shoulders Display](https://fonts.google.com/specimen/Big+Shoulders+Display)
+- Weights: 700
+  */
+/* reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+/* variables */
+:root {
+  /* color */
+  --bright-orange: hsl(31, 77%, 52%);
+  --dark-cyan: hsl(184, 100%, 22%);
+  --very-dark-cyan: hsl(179, 100%, 13%);
+  --font-family: "Lexend Deca";
+  --font-family-2: "Big Shoulders Display";
+}
+/* global component */
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* COMMENT: when using wrap it affect on margin value not work */
+  /* NOTE: we need use margin bottom to avoid container bottom adjust to lower body part */
+  margin: 20px auto;
+  width: 350px;
+}
+
+body {
+  font-size: 15px;
+
+}
+
+/* card */
+.card {
+  padding: 60px;
+  flex: 1;
+}
+.sedan {
+  background-color: var(--bright-orange);
+  border-radius: 10px 10px 0 0;
+}
+.suv {
+  background-color: var(--dark-cyan);
+}
+.lux {
+  background-color: var(--very-dark-cyan);
+  border-radius: 0 0 10px 10px;
+}
+.card img {
+  width: 50px;
+}
+.card h2 {
+  margin: 15px 0;
+  color: white;
+  text-transform: uppercase;
+}
+.card p {
+  line-height: 2;
+  color: white;
+  margin: 20px 0 40px;
+}
+.card a {
+  display: block;
+  width: 55%;
+  text-decoration: none;
+  background-color: white;
+  padding: 10px 20px;
+  border-radius: 40px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.sedan a {
+  color: var(--bright-orange);
+}
+.suv a {
+  color: var(--dark-cyan);
+}
+.lux a {
+  color: var(--very-dark-cyan);
+}
+/* COMMENT: use transparent hover */
+.card a:hover {
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+}
+@media (min-width: 768px) {
+  .container {
+    flex-direction: row;
+    width: 90%;
+    flex-wrap: nowrap;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .sedan {
+    border-radius: 10px 0 0 10px;
+  }
+  .lux {
+    border-radius: 0 10px 10px 0;
+  }
+
+  .card a {
+  width: 80%;
+  }
+}
