@@ -1,13 +1,21 @@
-/* styles.css */
 /* Base Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap"); */
 
+@font-face {
+  font-family: Fraunces;
+  src: url(./fonts/Fraunces-VariableFont_SOFT\,WONK\,opsz\,wght.ttf);
+}
+
+@font-face {
+  font-family: Montserrat;
+  src: url(./fonts/Montserrat-VariableFont_wght.ttf);
+}
 /* use variables */
 :root {
 /* colors */
@@ -19,8 +27,10 @@
 --white: hsl(0, 0%, 100%);
 /* Typography */
 --paragraph-font-size: 14px;
---font-family-montserrat: montserrat, sans-serif;
---font-family-fraunces: Fraunces;
+--font-family-montserrat: montserrat, sans-serif; /*500,700*/
+--font-family-fraunces: Fraunces; /*700*/
+--font-medium: 500;
+--font-bold: 700;
 /* sizes */
 --padding-container: 20px;
 --br-container: 20px;
@@ -31,15 +41,16 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f3eae3;
+  background-color: var(--cream);
   font-family: 'Montserrat', sans-serif;
+  font-weight: var(--font-medium);
 }
 
 /* Product Card Container */
 .product-card {
   max-width: 600px;
   display: flex;
-  background: white;
+  background: var(--white);
   border-radius: 10px;
   overflow: hidden;
   margin: 1rem;
@@ -73,7 +84,8 @@ body {
   letter-spacing: 5px;
   text-transform: uppercase;
   font-size: 0.8rem;
-  color: #6c7289;
+  color: var(--grey);
+  font-weight: var(--font-medium);
 }
 
 /* Product Title */
@@ -81,13 +93,15 @@ body {
   font-family: 'Fraunces', serif;
   font-size: 2rem;
   line-height: 1;
-  color: #1c232b;
+  color: var(--green-700);
+  font-weight: var(--font-bold);
 }
 
 /* Product Description */
 .product-description {
-  color: #6c7289;
+  color: var(--grey);
   line-height: 1.6;
+  font-weight: 500;
 }
 
 /* Price Container */
@@ -100,33 +114,37 @@ body {
 .current-price {
   font-family: 'Fraunces', serif;
   font-size: 2rem;
-  color: #3d8168;
+  color: var(--green-500);
+  font-weight: var(--font-bold);
 }
 
 .original-price {
-  color: #6c7289;
+  color: var(--grey);
   text-decoration: line-through;
+  font-weight: var(--font-medium);
+  font-size: 15px;
 }
 
 /* Cart Button */
 /* COMMENT: img + text */
 .cart-button {
-  background: #3d8168;
-  color: white;
+  background: var(--green-500);
+  color: var(--white);
   padding: 1rem;
   border: none;
   border-radius: 8px;
   font-weight: 700;
+  font-family: var(--font-family-montserrat);
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.7rem;
   transition: background-color 0.3s ease;
 }
 
 .cart-button:hover {
-  background: #1a4031;
+  background: var(--green-700);
 }
 
 /* Mobile Responsive Design */

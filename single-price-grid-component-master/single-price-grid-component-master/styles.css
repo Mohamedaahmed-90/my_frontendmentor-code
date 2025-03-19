@@ -9,6 +9,16 @@
   font-family: "Karla";
   src: url(./fonts/Karla-VariableFont_wght.ttf);
 }
+:root {
+  --cyan: hsl(179, 62%, 43%);
+  --bright-yellow: hsl(71, 73%, 54%);
+  --light-gray: hsl(204, 43%, 93%);
+  --grayish-blue: hsl(218, 22%, 67%);
+  --font-size-paragraph: 16px;
+  --font-family: "Karla";
+  --font-medium: 400;
+  --font-bold: 700;
+}
 /* Start with desktop */
 body {
   background: #e5eff5;
@@ -116,7 +126,6 @@ body {
   display: grid;
   gap: 0.3rem;
   /* margin-bottom: 0.3rem; */
-
 }
 
 /* Responsive Design */
@@ -124,11 +133,11 @@ body {
   .container {
     grid-template-rows: auto;
   }
-/* NOTE: to use one column only */
+  /* NOTE: to use one column only */
   .bottom-section {
     grid-template-columns: 1fr;
   }
-/* [ ] to start from same point  */
+  /* [ ] to start from same point  */
   .community,
   .subscription,
   .features {

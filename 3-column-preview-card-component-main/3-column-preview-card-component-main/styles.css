@@ -1,118 +1,136 @@
-/*   
-  - Family: [Lexend Deca](https://fonts.google.com/specimen/Lexend+Deca)
-- Weights: 400
-
-- Family: [Big Shoulders Display](https://fonts.google.com/specimen/Big+Shoulders+Display)
-- Weights: 700
-  */
-/* reset */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  padding: 0;
+/* Reset default styles */
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-/* variables */
+@font-face {
+  font-family: "Lexend Deca";
+  src: url(./assets/fonts/LexendDeca-VariableFont_wght.ttf);
+}
+@font-face {
+  font-family: "Big Shoulders Display";
+  src: url(./assets/fonts/BigShoulders-VariableFont_opsz\,wght.ttf);
+}
 :root {
-  /* color */
+  /* ======= color ======= */
   --bright-orange: hsl(31, 77%, 52%);
   --dark-cyan: hsl(184, 100%, 22%);
   --very-dark-cyan: hsl(179, 100%, 13%);
+  /* for paragraph */
+  --white: hsla(0, 0%, 100%, 0.75);
+  /* background, headings, buttons */
+  --very-light-gray: hsl(0, 0%, 95%);
+
+  /* ======= typoghraphy ======= */
   --font-family: "Lexend Deca";
   --font-family-2: "Big Shoulders Display";
+  --font-medium: 400;
+  --font-bold: 700;
 }
-/* global component */
+
+/* Main container styling */
 .container {
+  min-height: 100vh;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* COMMENT: when using wrap it affect on margin value not work */
-  /* NOTE: we need use margin bottom to avoid container bottom adjust to lower body part */
-  margin: 20px auto;
-  width: 350px;
+  padding: 20px;
+  background: #f2f2f2;
 }
 
-body {
-  font-size: 15px;
-
+/* NOTE: start design desktop first */
+/* Card container using Flexbox */
+.cards-wrapper {
+  display: flex;
+  max-width: 920px;
+  border-radius: 8px;
+  /* COMMENT: to make border-radius appear without problem */
+  overflow: hidden;
 }
 
-/* card */
+/* Individual card styling */
 .card {
-  padding: 60px;
   flex: 1;
+  padding: 48px;
+  color: white;
 }
+
+/* Card specific colors */
 .sedan {
-  background-color: var(--bright-orange);
-  border-radius: 10px 10px 0 0;
+  background: var(--bright-orange);
 }
 .suv {
-  background-color: var(--dark-cyan);
+  background: var(--dark-cyan);
 }
-.lux {
-  background-color: var(--very-dark-cyan);
-  border-radius: 0 0 10px 10px;
-}
-.card img {
-  width: 50px;
-}
-.card h2 {
-  margin: 15px 0;
-  color: white;
-  text-transform: uppercase;
-}
-.card p {
-  line-height: 2;
-  color: white;
-  margin: 20px 0 40px;
-}
-.card a {
-  display: block;
-  width: 55%;
-  text-decoration: none;
-  background-color: white;
-  padding: 10px 20px;
-  border-radius: 40px;
-  margin-top: 20px;
-  text-align: center;
+.luxury {
+  background: var(--very-dark-cyan);
 }
 
-.sedan a {
+/* Card content styling */
+.card img {
+  width: 70px;
+}
+.card h2 {
+  font-family: "Big Shoulders Display", cursive;
+  font-weight: var(--font-bold);
+  font-size: 2.5rem;
+  margin: 35px 0;
+}
+
+.card p {
+  font-family: "Lexend Deca", sans-serif;
+  font-weight: var(--font-medium);
+  color: var(--white);
+  line-height: 1.6;
+  margin-bottom: 80px;
+}
+
+/* Button styling */
+.learn-more {
+  text-decoration: none;
+  background: var(--very-light-gray);
+  padding: 12px 30px;
+  border-radius: 25px;
+  font-family: "Lexend Deca", sans-serif;
+  display: inline-block;
+  border: 2px solid var(--very-light-gray);
+}
+
+/* Button hover effects */
+.sedan .learn-more {
   color: var(--bright-orange);
 }
-.suv a {
+.suv .learn-more {
   color: var(--dark-cyan);
 }
-.lux a {
+.luxury .learn-more {
   color: var(--very-dark-cyan);
 }
 /* COMMENT: use transparent hover */
-.card a:hover {
-  background-color: transparent;
-  border: 1px solid white;
-  color: white;
+.learn-more:hover {
+  background: transparent;
+  color: white !important;
 }
-@media (min-width: 768px) {
-  .container {
-    flex-direction: row;
-    width: 90%;
-    flex-wrap: nowrap;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+
+/* Responsive design for mobile */
+@media (max-width: 768px) {
+  .cards-wrapper {
+    flex-direction: column;
+    margin: 20px 0;
+    /* width: 400px; */
   }
 
-  .sedan {
-    border-radius: 10px 0 0 10px;
-  }
-  .lux {
-    border-radius: 0 10px 10px 0;
+  .card {
+    padding: 40px;
   }
 
-  .card a {
-  width: 80%;
+  .card p {
+    margin-bottom: 30px;
+  }
+
+  /* Add separator between cards */
+  .card:not(:last-child) {
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
   }
 }

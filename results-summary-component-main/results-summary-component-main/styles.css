@@ -6,14 +6,9 @@
   font-family: "Hanken Grotesk", sans-serif; /* خط التصميم الأساسي */
 }
 
-/* import fonts */
-/* 
-- Family: [Inter](https://fonts.google.com/specimen/Inter)
-- Weights: 400, 600, 700
-*/
 @font-face {
-  font-family: inter;
-  src: url(./assets/fonts/Inter-VariableFont_slnt\wght.ttf);
+  font-family: Hanken Grotesk;
+  src: url(./assets/fonts/HankenGrotesk-VariableFont_wght.ttf);
 }
 /* use variables */
 :root {
@@ -41,6 +36,9 @@
   /* Typography */
   --paragraph-font-size: 18px;
   --font-family: "Hanken Grotesk"; /*500,700,800*/
+  --font-medium: 500;
+  --font-semi-bold: 700;
+  --font-bold: 800;
 }
 
 body {
